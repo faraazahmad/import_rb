@@ -1,24 +1,53 @@
 # ImportRb
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/import_rb`. To experiment with that code, run `bin/console` for an interactive prompt.
+Gem to experiment with namespace on read semantics.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add import_rb 
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install import_rb
 
 ## Usage
 
-TODO: Write usage instructions here
+Consider this file `sample.rb`:
+
+```ruby
+class Alpha
+  def speak = "alpha hath spoken"
+end
+
+class Beta
+  def speak = "beta hath spoken"
+end
+
+class Gamma
+  def speak = "gamma hath spoken"
+end
+```
+
+You can import specific constants from a file into your file:
+```ruby
+import [:Alpha, :Beta], from: 'spec/fixtures/sample.rb'
+```
+
+You can import into the global namespace or into another constant:
+```ruby
+class SomeClass; end
+module SomeModule; end
+
+SomeClass.import [:Alpha, :Beta], from: 'sample.rb'
+SomeModule.import [:Alpha, :Beta], from: 'sample.rb'
+```
+
+You can also import a constant and give it another name:
+```ruby
+import [:Alpha.as(:Alif), :Beta], from: 'spec/fixtures/sample.rb'
+```
 
 ## Development
 
@@ -28,7 +57,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/import_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/import_rb/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/faraazahmad/import_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/faraazahmad/import_rb/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
