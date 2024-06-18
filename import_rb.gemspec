@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "lib/import_rb"
-
 Gem::Specification.new do |spec|
   spec.name = "import_rb"
-  spec.version = ImportRb::VERSION
+  spec.version = "0.1.6"
   spec.authors = ["Syed Faraaz Ahmad"]
   spec.email = ["faraaz98@live.com"]
 

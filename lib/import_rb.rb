@@ -2,10 +2,6 @@
 
 require 'prism'
 
-module ImportRb
-  VERSION = "0.1.5"
-end
-
 class Symbol
   def as(const_name)
     [self, const_name]
