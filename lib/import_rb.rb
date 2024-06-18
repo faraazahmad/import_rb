@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require 'prism'
-require_relative "#{__dir__}/import_rb/version"
+
+module ImportRb
+  VERSION = "0.1.5"
+end
 
 class Symbol
   def as(const_name)
