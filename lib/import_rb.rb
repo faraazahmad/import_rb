@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'prism'
-require_relative "import_rb/version"
+require_relative "#{__dir__}/import_rb/version"
 
 class Symbol
   def as(const_name)
